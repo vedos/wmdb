@@ -12,5 +12,5 @@ Backend:
 
 wmdb-backend/api-service
 
-## add-migration intial
-## update-dabase
+## add-migration initial
+## update-database
