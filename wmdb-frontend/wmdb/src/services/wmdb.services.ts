@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import {  Item, Search } from '../models';
+import {  Item, Rating, Search } from '../models';
 import { environment } from '../environments/environment';
 
 @Injectable({
@@ -33,6 +33,6 @@ export class WMDBService {
       "Rating" : rating
     }
     
-    return this.http.post<Item[]>(`${environment.apiUrl}/items/rate`, body)
+    return this.http.post<Rating>(`${environment.apiUrl}/items/rate`, body)
   }
 }

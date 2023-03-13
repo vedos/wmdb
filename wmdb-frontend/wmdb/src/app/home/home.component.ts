@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertService } from 'src/helper/alert.service';
 import { ShareService } from 'src/helper/share.service';
 import { Item, Search } from 'src/models';
 import { WMDBService } from 'src/services/wmdb.services';
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private shareService: ShareService,
-    private wmdbService: WMDBService
+    private wmdbService: WMDBService,
+    private alertService: AlertService
   ) {
     this.viewItems = [];
     this.params = {};
@@ -43,8 +45,7 @@ export class HomeComponent implements OnInit {
 
           this.showMore = false;
           if(this.viewItems.length == this.pageSize)
-              this.showMore = true;
-          
+              this.showMore = true;          
         },
         error: error => {
           // alert error
@@ -61,8 +62,7 @@ export class HomeComponent implements OnInit {
     if (!isNaN(item.current_rating)) {
       this.wmdbService.rate(item.id, item.current_rating).subscribe({
         next: data => {
-
-          console.log(data);
+          this.alertService.success("Rated: " + data.item.title + " with " + item.current_rating + " starts" );
         },
         error: error => {
           // alert error
