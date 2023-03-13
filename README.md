@@ -4,13 +4,13 @@ Frontend:
 
 wmdb-frontend/wmdb
 
-# npm i
-# npm run start
+* npm i 
+* npm run start 
 
 
 Backend:
 
 wmdb-backend/api-service
 
-# add-migration initial
-# update-database
+* add-migration initial 
+* update-database 
