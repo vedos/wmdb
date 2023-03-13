@@ -1,0 +1,27 @@
+<div class="site-header">
+    <div class="site-container">
+        <a id="branding">
+            <img src="../assets/images/logo.png" alt="" class="logo">
+            <div class="logo-text">
+                <h1 class="site-title">WMDB - tiny database</h1>
+                <small class="site-description">rate movies and tv shows</small>
+            </div>
+        </a> 
+        <div class="main-navigation">
+            <button class="toggle-menu"><i class="fa fa-bars"></i></button>
+            <ul class="menu"  >
+               <!--<li class="menu-item" [ngClass]="selected_category == null ? 'current-menu-item' : ''"><a (click)="search()" ><i class="icon-home"></i></a></li>-->
+                <li *ngFor="let cat of categories" class="menu-item" [ngClass]="cat.tag == selected_category ? 'home current-menu-item':''">
+                    <a (click)="search(cat.tag)">{{ cat.name }}</a>
+                </li>
+            </ul>
+            <div class="search-form">
+                <label><img src="../assets/images/icon-search.png"></label>
+
+                <input type="text" placeholder="Search..." [(ngModel)]="search_param" (ngModelChange)="typing()">
+            </div> 
+
+            <div class="mobile-navigation"></div> 
+        </div> 
+    </div> 
+</div> 

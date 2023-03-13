@@ -1,0 +1,31 @@
+<main class="main-content">
+    <div class="site-container">
+        <div class="page">
+            <section>
+                <header>
+                    <h2 class="section-title">{{ title }}</h2>
+                </header>
+
+               <div class="product-list">
+                    <div class="product" *ngFor="let item of viewItems">
+                        <div class="inner-product">
+                            <div class="figure-image">
+                                <a><img src="{{ item.thumbnail }}" alt=""></a>
+                            </div>
+                            <h3 class="product-title"><a>{{ item.title }}</a></h3>
+                            <small>{{item.releaseDate | date: 'dd.MM.yyyy' }}</small><br><br>
+                            <p class="rating">Avg: {{ item.rating | number:'1.0-1' }} </p>
+                            <ngb-rating  [max]="5" [(rate)]="item.current_rating" [readonly]="false" (rateChange)="rate(item)"></ngb-rating>
+
+                            <!--<a class="button" >Rate</a>-->
+                        </div>
+                    </div> 
+                </div> <!-- .product-list -->
+                <div *ngIf="showMore" style="text-align: center;">
+                    <button class="btn btn-secondary" (click)="viewMore()" >View more</button>
+                </div>
+                            <!--<a href="#" class="button muted">Read Details</a>-->
+            </section>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = api_service
+build_property.ProjectDir = C:\Projects\wmdb\wmdb-backend\api-service\api-service\
